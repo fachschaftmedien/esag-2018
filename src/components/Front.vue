@@ -16,7 +16,7 @@
           return {
             calculatedSpeed: 2,
             calculatedLightNumber: 2,
-            isEdge: window.navigator.userAgent.indexOf('Edge') >= 0
+            isEdge: window.navigator.userAgent.indexOf('Edge') >= 0 || window.navigator.userAgent.indexOf('Trident') >= 0
           }
         },
         mounted(){
