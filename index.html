@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- here are no easter eggs, carry on -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Fachschaft Medien">
+    <meta name="description" content="Die Seite für Erstsemester-Studenten des Fachbereich Medien der Hochschule Düsseldorf (HSD)">
+    <title>Erstsemester-Woche Medien 2018</title>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Overpass|Bad+Script" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= htmlWebpackPlugin.files.publicPath %>static/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= htmlWebpackPlugin.files.publicPath %>static/images/icons/favicon-16x16.png">
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Fachschaft Medien">
+    <meta itemprop="description" content="Die Seite für Erstsemester-Studenten des Fachbereich Medien der Hochschule Düsseldorf (HSD)">
+    <meta itemprop="image" content="http://esag.fachschaftmedien.de/static/images/icons/icon-512x512.png">
+    <!--[if IE]><link rel="shortcut icon" href="/static/imgages/icons/favicon.ico"><![endif]-->
+    <!-- Add to home screen for Android and modern mobile browsers -->
+    <link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>static/manifest.json">
+    <meta name="theme-color" content="#192C57">
+    <meta name="thumbnail" content="http://esag.fachschaftmedien.de/resources/thumbnail.jpg"/>
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="esag-pwa">
+    <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/safari-pinned-tab.svg" color="#192C57">
+    <!-- Add to home screen for Windows -->
+    <meta name="msapplication-TileImage" content="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#192C57">
+    <% for (var chunk of webpack.chunks) {
+        for (var file of chunk.files) {
+          if (file.match(/\.(js|css)$/)) { %>
+    <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>"><% }}} %>
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "WebSite",
+      "name": "Erstsemester-Woche Medien 2018",
+      "alternateName": "Medien-Ersti-Woche zum Studienstart",
+      "url": "http://esag.fachschaftmedien.de"
+    }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Event",
+        "name": "Ersti-Woche",
+        "description": "Erstsemester-Woche für den Fachbereich Medien der Hochschule Düsseldorf (HSD). Wir bieten Informationen zum Studienstart, Prüfungen & Praktika, etc.",
+        "image": "http://esag.fachschaftmedien.de/resources/thumbnail.jpg",
+        "startDate": "2018-09-24T09:00",
+        "endDate": "2018-09-27T23:55",
+        "performer": {
+          "@type": "PerformingGroup",
+          "name": "Fachschaft Medien"
+        },
+        "location": {
+          "@type": "Place",
+          "name": "Hochschule Düsseldorf (HSD)",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Münsterstraße 156",
+            "addressLocality": "Düsseldorf",
+            "postalCode": "40476",
+            "addressCountry": "DE"
+          }
+        }
+      }
+      </script>
+  </head>
+  <body>
+    <noscript>
+      <article itemprop="description" content="Jedes Jahr veranstaltet die Fachschaft Medien für neue Studenten des Fachbereichs eine Einführungswoche, damit euer Start an der HSD so angenehm wie möglich wird">
+        <img src="./resources/thumbnail.jpg" alt="Ersti Woche Logo">
+        <h1 id="intro-headline"> Über die Ersti-Woche</h1>
+        Jedes Jahr veranstaltet <span itemprop="organizer">die Fachschaft Medien</span> für <span itemprop="audience">neue Studenten des Fachbereichs</span> eine Einführungswoche,
+        damit euer Start an der HS Düsseldorf so angenehm wie möglich wird.
+        Die Ersti-Woche findet vom
+        <time class="important"> 24. </time> bis zum
+        <time class="important"> 27. September 2018 </time> am
+        <strong class="important">Campus Derendorf</strong> statt.
+        In diesem Zeitraum gibt es für euch eine kurze Einführung und nützliche Informationen fürs Studium.
+        Außerdem geht es natürlich auch darum, dass Ihr schon mal erste Kontakte knüpft und die Leute kennen lernt,
+        mit denen Ihr die nächsten Jahre über viel Zeit verbringen werdet!
+        Deshalb stehen auch ein gemeinsames Frühstück, Grillen, sowie Party im Allgemeinen auf dem Programm. <br>
+        Falls ihr etwas verpasst, haben wir es auch noch mal im <a class="source" href="./resources/studimanual.pdf" title="PDF mit Studieninformationen öffnen/herunterladen">Studi-Manual</a>.
+      </article>
+      <article>
+        <h1>
+          Zeitplan
+        </h1>
+        <p>
+          Wir haben einiges mit euch vor! Den Zeitplan findet ihr hier!
+          <img src="http://esag.fachschaftmedien.de/resources/zeitplan.png" alt="Bild unter http://esag.fachschaftmedien.de/resources/zeitplan.png">
+          <a href="/resources/calendar.ics">Zeitplan als ICS-Datei</a>
+          <a href="http://s.fachschaftmedien.de/calendar">http://s.fachschaftmedien.de/calendar</a>
+        </p>
+      </article>
+      <article>
+        <h1 id="social-headline">
+          Soziale Netzwerke
+        </h1>
+        <link itemprop="url" href="https://fachschaftmedien.de">
+        <article>
+          Wir sind übrigens auch auf einigen sozialen Netzwerken vertreten,
+          über die ihr uns für Fragen gerne anschreiben könnt. Zum Beispiel könnt ihr uns auf Facebook folgen und fragen:
+          <a href="https://de-de.facebook.com/fachschaftmedien.de/" itemprop="sameAs">http://s.fachschaftmedien.de/facebook</a>.
+          Unsere Website, auf der wir immer mal wieder Informationen veröffentlichen erreicht ihr über <a href="https://fachschaftmedien.de">https://www.fachschaftmedien.de</a>.
+          Zur besseren Koordination der Erstsemester haben wir auch eine Whatsapp-Gruppe für euch erstellt.
+        </article>
+        <div class="whatsapp-container column">
+          <p>Ersti-Whatsapp Gruppe</p>
+          <img src="../assets/whatsappQR.webp" alt="http://s.fachschaftmedien.de/whatsapp" onerror="this.onerror=null;this.src='./resources/whatsappQR.png';console.log('fallback to '+this.src);">
+          <a href="https://chat.whatsapp.com/invite/5Z5UeayUtiF9WswJagC68m">http://s.fachschaftmedien.de/whatsapp</a>
+        </div>
+      </article>
+      <footer id="impressum-container">
+        <h1>Impressum</h1>
+        <small>
+          <address itemscope itemtype="http://schema.org/PostalAddress">
+            Sebastian Holthausen (offizieller Vertreter)<br>
+            <span itemprop="streetAddress">Münsterstraße156</span><br>
+            <span itemprop="postalCode">40476</span><span itemprop="addressLocality">Düsseldorf</span><br>
+            <span itemprop="addressCountry">Deutschland</span><br>
+            <br>
+            Kontakt:<br>
+            Telefon:<span itemprop="telephone">+49 (211)-4351-2512</span><br>
+            E-Mail: <span itemprop="email">info [ät] fachschaftmedien.de</span><br>
+          </address>
+          <br>
+          <p>
+            Verantwortlich für den Inhalt:<br>
+            Lukas Steinjan<br>
+            Münsterstraße156<br>
+            40476 Düsseldorf
+          </p>
+          <div class="spacer"></div>
+          <a href="#" id="impressum-link">Haftungsausschuss</a>
+          <p v-show="disclaimers">
+            <br>Haftung für Inhalte<br>
+            Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen. <br>
+            <br>Haftung für Links<br>
+            Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.<br>
+            <br>Datenschutz<br>
+            Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.<br>
+            Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. <br>
+            Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.
+          </p>
+        </small>
+      </footer>
+    </noscript>
+    <div id="app"></div>
+    <!-- Todo: only include in production -->
+    <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
