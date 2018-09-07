@@ -1,6 +1,14 @@
-# esag-pwa
+# esag-2018
 
-> esag page
+> Erstsemester Seite:
+- PWA (Offline-fähig wenn über HTTPS)
+- Mobile-First (auf Mobilgeräte optimiert)
+- Prerendered SPA (um die Initial Load Time zu reduzieren, wird die Seite über headless Chrome als HTML gerendert, SSR wäre Overkill)
+- Lighthouse-Rating: Performance ~ 75 / 100; Accessibility: 100 / 100; SEO: 100 / 100; PWA: >60 / 100; Best Practices: >60 / 100
+- Browser-Support: Firefox, Chrome, Safari - nicht unterstützt: IE
+- Frontend-Framework: Vue2
+- Build&Bundle: Webpack2
+- package-manager: npm
 
 ## Build Setup
 
@@ -19,3 +27,9 @@ npm run build --report
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Ziele
+
+- Daten weniger statisch in HTML und häufiger vom Backend fetchen
+- Edge besser unterstützen
+- Homepage auf HTTPS umstellen
