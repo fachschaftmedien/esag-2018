@@ -11,6 +11,7 @@
     "test": "echo \"Nah... #YOLO-push-to-master\""
   },
   "dependencies": {
+    "annyang": "^2.6.1",
     "vue": "^2.5.17",
     "vue-flat-surface-shader": "^1.0.5",
     "vuetify": "^1.2.1"

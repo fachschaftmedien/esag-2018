@@ -10,6 +10,7 @@ import VGrid from 'vuetify/es5/components/VGrid';
 import VLabel from 'vuetify/es5/components/VLabel';
 import VTextField from 'vuetify/es5/components/VTextField';
 import VRating from 'vuetify/es5/components/VRating';
+import VSwitch from 'vuetify/es5/components/VSwitch'
 import VRadioGroup from 'vuetify/es5/components/VRadioGroup'
 
 Vue.use(Vuetify, {
@@ -20,7 +21,8 @@ Vue.use(Vuetify, {
     VLabel,
     VTextField,
     VRating,
-    VRadioGroup
+    VRadioGroup,
+    VSwitch
   }
 });
 

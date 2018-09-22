@@ -33,6 +33,7 @@
         for (var file of chunk.files) {
           if (file.match(/\.(js|css)$/)) { %>
     <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>"><% }}} %>
+    <!-- include search engine information (Event of FS Medien) -->
     <script type="application/ld+json">
     {
       "@context": "http://schema.org/",
@@ -70,52 +71,13 @@
       </script>
   </head>
   <body>
+    <!-- no script fallback -->
     <noscript>
-      <article itemprop="description" content="Jedes Jahr veranstaltet die Fachschaft Medien für neue Studenten des Fachbereichs eine Einführungswoche, damit euer Start an der HSD so angenehm wie möglich wird">
-        <img src="./resources/thumbnail.jpg" alt="Ersti Woche Logo">
-        <h1 id="intro-headline"> Über die Ersti-Woche</h1>
-        Jedes Jahr veranstaltet <span itemprop="organizer">die Fachschaft Medien</span> für <span itemprop="audience">neue Studenten des Fachbereichs</span> eine Einführungswoche,
-        damit euer Start an der HS Düsseldorf so angenehm wie möglich wird.
-        Die Ersti-Woche findet vom
-        <time class="important"> 24. </time> bis zum
-        <time class="important"> 27. September 2018 </time> am
-        <strong class="important">Campus Derendorf</strong> statt.
-        In diesem Zeitraum gibt es für euch eine kurze Einführung und nützliche Informationen fürs Studium.
-        Außerdem geht es natürlich auch darum, dass Ihr schon mal erste Kontakte knüpft und die Leute kennen lernt,
-        mit denen Ihr die nächsten Jahre über viel Zeit verbringen werdet!
-        Deshalb stehen auch ein gemeinsames Frühstück, Grillen, sowie Party im Allgemeinen auf dem Programm. <br>
-        Falls ihr etwas verpasst, haben wir es auch noch mal im <a class="source" href="./resources/studimanual.pdf" title="PDF mit Studieninformationen öffnen/herunterladen">Studi-Manual</a>.
-      </article>
-      <article>
-        <h1>
-          Zeitplan
-        </h1>
-        <p>
-          Wir haben einiges mit euch vor! Den Zeitplan findet ihr hier!
-          <img src="http://esag.fachschaftmedien.de/resources/zeitplan.png" alt="Bild unter http://esag.fachschaftmedien.de/resources/zeitplan.png">
-          <a href="/resources/calendar.ics">Zeitplan als ICS-Datei</a>
-          <a href="http://s.fachschaftmedien.de/calendar">http://s.fachschaftmedien.de/calendar</a>
-        </p>
-      </article>
-      <article>
-        <h1 id="social-headline">
-          Soziale Netzwerke
-        </h1>
-        <link itemprop="url" href="https://fachschaftmedien.de">
-        <article>
-          Wir sind übrigens auch auf einigen sozialen Netzwerken vertreten,
-          über die ihr uns für Fragen gerne anschreiben könnt. Zum Beispiel könnt ihr uns auf Facebook folgen und fragen:
-          <a href="https://de-de.facebook.com/fachschaftmedien.de/" itemprop="sameAs">http://s.fachschaftmedien.de/facebook</a>.
-          Unsere Website, auf der wir immer mal wieder Informationen veröffentlichen erreicht ihr über <a href="https://fachschaftmedien.de">https://www.fachschaftmedien.de</a>.
-          Zur besseren Koordination der Erstsemester haben wir auch eine Whatsapp-Gruppe für euch erstellt.
-        </article>
-        <div class="whatsapp-container column">
-          <p>Ersti-Whatsapp Gruppe</p>
-          <img src="../assets/whatsappQR.webp" alt="http://s.fachschaftmedien.de/whatsapp" onerror="this.onerror=null;this.src='./resources/whatsappQR.png';console.log('fallback to '+this.src);">
-          <a href="https://chat.whatsapp.com/invite/5Z5UeayUtiF9WswJagC68m">http://s.fachschaftmedien.de/whatsapp</a>
-        </div>
-      </article>
-      <footer id="impressum-container">
+      <h1>Erstiwoche (NO-JS-ENABLED-FALLBACK)</h1>
+      Wann: <time>24.09.2018</time> bis <time>27.09.2018</time>, stets ab 10:00 Uhr
+      Wo: HSD, Campus Derendorf (Münsterstraße, 40476 Düsseldorf)
+      Wer: Alle Erstsemester-Studenten des Fachbereich Medien
+      Warum: Informationen über alles wichtige im Studium, Kennenlernen, Feiern
         <h1>Impressum</h1>
         <small>
           <address itemscope itemtype="http://schema.org/PostalAddress">
@@ -135,9 +97,8 @@
             Münsterstraße156<br>
             40476 Düsseldorf
           </p>
-          <div class="spacer"></div>
-          <a href="#" id="impressum-link">Haftungsausschuss</a>
-          <p v-show="disclaimers">
+          <h1>Haftungsausschuss</h1>
+          <p>
             <br>Haftung für Inhalte<br>
             Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen. <br>
             <br>Haftung für Links<br>
@@ -154,14 +115,15 @@
     <!-- Todo: only include in production -->
     <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
     <!-- built files will be auto injected -->
-    <!-- add fetch for Edge -->
-    <script src="https://cdn.jsdelivr.net/npm/fetch-polyfill@0.8.2/fetch.min.js"></script>
-    <script>
-      // super legit IE fix
+    <!-- super legit IE fix, async to not waste time for modern browsers... -->
+    <script async>
       if(window.navigator.userAgent.indexOf('MSIE') >= 0 || window.navigator.userAgent.indexOf('Trident') >= 0){
-        document.body.innerHTML = '<h1 style="font-family: monospace; color: white;"> Please use a decent browser </h1><img src="/resources/ie.gif">';
+        document.body.innerHTML = '<h1 style="font-family:monospace;color:white;">Please use a decent browser</h1><img src="/resources/ie.gif">';
         document.body.style.backgroundColor = 'black';
       }
     </script>
+    <!-- add fetch for Edge -->
+    <script async src="https://cdn.jsdelivr.net/npm/fetch-polyfill@0.8.2/fetch.min.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.min.js"></script>
   </body>
 </html>

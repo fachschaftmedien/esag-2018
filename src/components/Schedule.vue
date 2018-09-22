@@ -52,12 +52,22 @@
         }
       }
     },
+    methods: {
+      scheduleFromCache(){
+        const data = window.localStorage.getItem('calendar');
+        if(data) this.schedule  = JSON.parse(data);
+      },
+      setScheduleAndCache(data){
+        this.schedule = data;
+        window.localStorage.setItem('calendar', JSON.stringify(data))
+      }
+    },
     created(){
       // get the actual calendar events and display them
       fetch(window.location.origin+'/resources/calendar.json')
         .then(res => res.json())
-        .then(data => this.schedule = data)
-        .catch(console.error);
+        .then(this.setScheduleAndCache)
+        .catch(this.scheduleFromCache);
     }
   }
 </script>

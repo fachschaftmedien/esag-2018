@@ -1,6 +1,7 @@
 <template>
   <v-container id="app">
-    <navigation :sections="Object.values(components).map(c => c.name)" :scroll="scroll"></navigation>
+    <navigation :sections="Object.values(components).map(c => c.name)" :scroll="scroll" @search="isSearching=$event"></navigation>
+    <search :active="isSearching" :scroll="scroll" @search="isSearching=$event"></search>
     <div class="spacer"></div>
     <front></front>
     <page-section v-for="(component, name) in components" :key="name" :id="name">
@@ -8,6 +9,7 @@
         <component :is="component" :scroll="scroll"></component>
       </template>
     </page-section>
+    <impressum></impressum>
   </v-container>
 </template>
 
@@ -20,6 +22,7 @@ import navigation from './components/Navigation'
 import social from './components/Social'
 import impressum from './components/Impressum'
 import pageSection from './components/PageSection'
+import search from './components/Search'
 import Scroll from './js/scroll.js'
 
 const components = {
@@ -27,13 +30,14 @@ const components = {
   schedule,
   social,
   evaluation,
-  impressum
 };
 
 
 export default {
   name: 'App',
   components: {
+    impressum,
+    search,
     pageSection,
     navigation,
     front,
@@ -42,6 +46,7 @@ export default {
   data(){
     return {
       components,
+      isSearching: false,
       scroll: {}
     }
   },
@@ -146,6 +151,10 @@ export default {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
+  }
+
+  .flex-row>*{
+    margin: auto;
   }
 
   .on-view h1{

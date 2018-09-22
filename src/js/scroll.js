@@ -110,6 +110,14 @@ export default class Scroll{
     if(!this.paused) document.documentElement.scrollTop = px;
   }
 
+  scrollToPageTop(){
+    this.scrollTo(0);
+  }
+
+  scrollToPageBottom(){
+    this.scrollTo(document.documentElement.offsetHeight);
+  }
+
   to(n){
     if(this.options.verbose) console.log('go to section n=',n,' index=',this.currentIndex);
     if(n >= 0 && n < this.elements.length){

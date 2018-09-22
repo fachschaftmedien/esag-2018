@@ -29,7 +29,7 @@
           <v-text-field label="Was hat dir nicht gefallen?" counter="900" v-model="bad" @focus="stopScroll()" @blur="startScroll"/>
         </div>
         <div class="group">
-          <v-btn id="send" @click="send()">Senden</v-btn>
+          <v-btn id="send" @click="send()" :disabled="!online"> {{online ? 'Senden' : 'Senden (offline)'}} </v-btn>
         </div>
         <div class="group result" id="result-container" :style="'color: ' + (error ? 'red' : 'green')">
 
@@ -51,7 +51,8 @@
         course: 0,
         good: "",
         bad: "",
-        error: false
+        error: false,
+        online: window.navigator.onLine
       }
     },
     methods: {
@@ -61,13 +62,14 @@
       startScroll(){
         this.scroll.pauseScrollTo(false);
       },
-      clear(){
-        document.getElementById('result-container').innerText = "";
+      clear(overwriteText){
+        if(overwriteText) document.getElementById('result-container').innerText = "";
         this.course = "";
         this.good = "";
         this.bad = "";
         this.rating = 0;
         this.error = false;
+        return true;
       },
       send(){
         const resultContainer = document.getElementById('result-container');
@@ -86,8 +88,19 @@
             return res.text();
           })
           .then(text => resultContainer.innerText = text)
-          .then(() => this.error ? 0 : this.clear());
-      }
+          .then(() => this.error ? 0 : this.clear(false));
+      },
+      setOnlineStatus(isOnline){
+        this.online = isOnline;
+      },
+    },
+    created(){
+      window.addEventListener('online', this.setOnlineStatus.bind(this, true));
+      window.addEventListener('offline', this.setOnlineStatus.bind(this, false));
+    },
+    destroyed(){
+      window.removeEventListener('online', this.setOnlineStatus.bind(this, true));
+      window.removeEventListener('offline', this.setOnlineStatus.bind(this, false));
     }
   }
 </script>

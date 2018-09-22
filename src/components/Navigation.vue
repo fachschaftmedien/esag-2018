@@ -8,13 +8,20 @@
         <li v-for="(section, index) in sections" :key="index" @click="select(index)" :class="(index === scroll.currentIndex) ? 'active' : 'inactive'" role="none">
           <div role="link">{{section}}</div>
         </li>
+        <li>
+          <div role="link" @click="toggle()"> Settings </div>
+        </li>
       </ul>
+      <div :class="mobileActive ? 'mobile-display' : 'mobile-hidden'" id="nav-background-overlay" @click="mobileActive = false"></div>
     </nav>
 </template>
 
 <script>
     export default {
       name: "Navigation",
+      props:{
+        searchActive: Boolean
+      },
       data(){
         return {
           mobileActive: false
@@ -24,6 +31,11 @@
         select(index){
           this.mobileActive = false;
           this.scroll.to(index);
+        },
+        toggle(value){
+          if(!value && value !== false) value = !this.searchActive;
+          this.mobileActive = false;
+          this.$emit('search', value);
         }
       },
       props:{
@@ -75,6 +87,21 @@
   }
 
   @media only screen and (max-width: 600px){
+    #nav-background-overlay.mobile-display{
+      position: fixed;
+      z-index: 1;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(50, 50, 50, 0.3);
+      transition: background-color ease;
+    }
+
+    #nav-background-overlay.mobile-hidden{
+      background-color: rgba(50,50,50,0);
+      transition: background-color ease;
+      height: 0;
+    }
+
     .mobile-row{
       display: flex;
     }
